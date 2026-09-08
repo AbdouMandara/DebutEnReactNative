@@ -1,56 +1,51 @@
-# Welcome to your Expo app 👋
+# App d'apprentissage React Native
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Ce projet est une petite application Expo pour apprendre les bases de React Native et de la gestion d'état.
 
-## Get started
+## Objectif
 
-1. Install dependencies
+Créer une interface simple avec :
 
-   ```bash
-   npm install
-   ```
+- des champs de saisie
+- un bouton pour afficher un résultat
+- une logique avec `useState`
+- une mise en pratique des composants React Native
 
-2. Start the app
+## Prérequis
 
-   ```bash
-   npx expo start
-   ```
+Avant de lancer le projet, il faut avoir installé :
 
-In the output, you'll find options to open the app in a
+- Node.js
+- npm
+- Expo Go ou un émulateur Android/iOS
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+## Installation
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
+1. Ouvrir le terminal dans le dossier du projet
+2. Installer les dépendances :
 
 ```bash
-npm run reset-project
+npm install
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## Lancer l'application
 
-### Other setup steps
+```bash
+npx expo start
+```
 
-- To set up ESLint for linting, run `npx expo lint`, or follow our guide on ["Using ESLint and Prettier"](https://docs.expo.dev/guides/using-eslint/)
-- If you'd like to set up unit testing, follow our guide on ["Unit Testing with Jest"](https://docs.expo.dev/develop/unit-testing/)
-- Learn more about the TypeScript setup in this template in our guide on ["Using TypeScript"](https://docs.expo.dev/guides/typescript/)
+Ensuite, tu peux :
 
-## Learn more
+- scanner le QR code avec Expo Go
+- ou lancer l'application sur un émulateur
 
-To learn more about developing your project with Expo, look at the following resources:
+## Fonctionnalités
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+- saisie du nom, prénom et âge
+- validation du formulaire
+- affichage d'un message de bienvenue
+- bouton de réinitialisation
 
-## Join the community
+## Note
 
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+Ce projet est surtout un projet d'apprentissage pour comprendre les principes de base d'une app mobile avec React Native et Expo.

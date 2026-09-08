@@ -16,6 +16,7 @@ export default function Index() {
   const afficheAlerte = () => {
     Alert.alert(nomEntier(nom, prenom, age));
   }
+  const isDisabled = !nom || !prenom || age <= 0;
   return (
     <>
       <View style={styles.container}>
@@ -31,10 +32,8 @@ export default function Index() {
 
         {nom && prenom && age > 0 ? (
           <>
-            <Text style={styles.textParagraph}>
-              Je suis {nomEntier(nom, prenom, age)}!
-            </Text>
             <Button
+              
               title="Réinitialiser"
               onPress={() => {
                 setNom("");
@@ -45,7 +44,14 @@ export default function Index() {
           </>
         ) : null}
 
-        <Pressable onPress={afficheAlerte} style={styles.buttons} disabled={!nom || !prenom || age <= 0}>
+        <Pressable 
+          onPress={afficheAlerte}
+          disabled={isDisabled}
+          style={({ pressed }) => [
+            styles.buttons,
+            pressed && { backgroundColor: "#1e40af"},
+            isDisabled && { opacity: 0.5, backgroundColor: "rgba(30, 64, 175, 0.5)"}
+          ]}>
           <Text style={{fontSize:16, color: 'white'}}>Voir le résultat</Text>
         </Pressable>
       </View>

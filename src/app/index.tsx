@@ -1,5 +1,6 @@
 import { Text, View, StyleSheet, TextInput, Alert, Pressable } from "react-native";
 import { useState } from "react";
+import {KeyboardAwareScrollView} from "react-native-keyboard-controller"
 export default function Index() {
   const nomEntier = (
     nom : String,
@@ -19,7 +20,9 @@ export default function Index() {
   const isDisabled = !nom || !prenom || age <= 0;
   return (
     <>
-      <View style={styles.container}>
+    <KeyboardAwareScrollView style={{flex:1}} contentContainerStyle={styles.container}>
+
+      {/* <View style={styles.container}> */}
         <Text style={{fontSize: 30, textAlign: "center", marginBottom: 20}}>Bienvenue sur mon app</Text>
         <TextInput style={styles.textInput} placeholder="Nom" value={nom} onChangeText={setNom}/>
         <TextInput style={styles.textInput} placeholder="Prénom" value={prenom} onChangeText={setPrenom}/>
@@ -48,18 +51,19 @@ export default function Index() {
                 setPrenom("");
                 setAge(0);
               }}
-            >
+              >
               <Text style={{fontSize:16, color: 'white'}}>Réinitialiser</Text>
             </Pressable>
    
-      </View>
+      {/* </View> */}
+      </KeyboardAwareScrollView>
   </>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1, //Pour que ca prenne toute la largeur dispo du parent
+    flexGrow: 1, //Pour que ca prenne toute la largeur dispo du parent
     // alignItems: "start",
     justifyContent: "center",
     padding: 20,

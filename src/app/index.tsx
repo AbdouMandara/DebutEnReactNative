@@ -1,4 +1,4 @@
-import { Text, View, StyleSheet, ScrollView, Button, TextInput, Alert, Pressable } from "react-native";
+import { Text, View, StyleSheet, TextInput, Alert, Pressable } from "react-native";
 import { useState } from "react";
 export default function Index() {
   const nomEntier = (
@@ -6,7 +6,7 @@ export default function Index() {
     prenom : String,
     age : Number,
   )=>{
-    return `${nom} ${prenom} j'ai ${age} ans`;
+    return `Je suis ${nom} ${prenom}, j 'ai ${age} ans`;
   }
 
   const [nom, setNom] = useState("");
@@ -24,25 +24,11 @@ export default function Index() {
         <TextInput style={styles.textInput} placeholder="Nom" value={nom} onChangeText={setNom}/>
         <TextInput style={styles.textInput} placeholder="Prénom" value={prenom} onChangeText={setPrenom}/>
         <TextInput
+          keyboardType="number-pad"
           style={styles.textInput}
           placeholder="Âge"
-          value={age.toString()}
-          onChangeText={(text) => setAge(parseInt(text) || 0)}
+          onChangeText={(text) => setAge(parseInt(text))}
         />
-
-        {nom && prenom && age > 0 ? (
-          <>
-            <Button
-              
-              title="Réinitialiser"
-              onPress={() => {
-                setNom("");
-                setPrenom("");
-                setAge(0);
-              }}
-            />
-          </>
-        ) : null}
 
         <Pressable 
           onPress={afficheAlerte}
@@ -54,6 +40,18 @@ export default function Index() {
           ]}>
           <Text style={{fontSize:16, color: 'white'}}>Voir le résultat</Text>
         </Pressable>
+
+            <Pressable
+              style={{marginTop: 10, backgroundColor: "#d8871e", padding: 10, borderRadius: 6, alignItems: "center"}}
+              onPress={() => {
+                setNom("");
+                setPrenom("");
+                setAge(0);
+              }}
+            >
+              <Text style={{fontSize:16, color: 'white'}}>Réinitialiser</Text>
+            </Pressable>
+   
       </View>
   </>
   );

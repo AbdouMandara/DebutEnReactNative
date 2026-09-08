@@ -1,10 +1,10 @@
 {
   "expo": {
-    "name": "app-test-debut",
-    "slug": "app-test-debut",
+    "name": "Mes debuts",
+    "slug": "mes-debuts",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
+    "icon": "./assets/images.png",
     "scheme": "apptestdebut",
     "userInterfaceStyle": "automatic",
     "ios": {
@@ -28,7 +28,7 @@
       [
         "expo-splash-screen",
         {
-          "backgroundColor": "#208AEF",
+          "backgroundColor": "#000000",
           "image": "./assets/images/splash-icon.png",
           "imageWidth": 76
         }

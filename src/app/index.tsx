@@ -1,4 +1,4 @@
-import { Text, View, StyleSheet, ScrollView,Button, TextInput, Alert } from "react-native";
+import { Text, View, StyleSheet, ScrollView, Button, TextInput, Alert, Pressable } from "react-native";
 import { useState } from "react";
 export default function Index() {
   const nomEntier = (
@@ -17,30 +17,48 @@ export default function Index() {
     Alert.alert(nomEntier(nom, prenom, age));
   }
   return (
-    <ScrollView style={{ padding: 20 }}>
+    <>
       <View style={styles.container}>
+        <Text style={{fontSize: 30, textAlign: "center", marginBottom: 20}}>Bienvenue sur mon app</Text>
         <TextInput style={styles.textInput} placeholder="Nom" value={nom} onChangeText={setNom}/>
         <TextInput style={styles.textInput} placeholder="Prénom" value={prenom} onChangeText={setPrenom}/>
-        <TextInput style={styles.textInput} placeholder="Âge" value={age.toString()} onChangeText={(text) => setAge(parseInt(text) || 0)}/>
+        <TextInput
+          style={styles.textInput}
+          placeholder="Âge"
+          value={age.toString()}
+          onChangeText={(text) => setAge(parseInt(text) || 0)}
+        />
+
         {nom && prenom && age > 0 ? (
           <>
             <Text style={styles.textParagraph}>
               Je suis {nomEntier(nom, prenom, age)}!
             </Text>
-            <Button title="Réinitialiser" onPress={() => { setNom(""); setPrenom(""); setAge(0); }} />
+            <Button
+              title="Réinitialiser"
+              onPress={() => {
+                setNom("");
+                setPrenom("");
+                setAge(0);
+              }}
+            />
           </>
         ) : null}
-        <Button title="Voir le resultat" onPress={afficheAlerte} style={styles.buttons} />
+
+        <Pressable onPress={afficheAlerte} style={styles.buttons} disabled={!nom || !prenom || age <= 0}>
+          <Text style={{fontSize:16, color: 'white'}}>Voir le résultat</Text>
+        </Pressable>
       </View>
-    </ScrollView>
+  </>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1, //Pour que ca prenne toute la largeur dispo du parent
-    alignItems: "center",
+    // alignItems: "start",
     justifyContent: "center",
+    padding: 20,
   },
   textParagraph:{
     fontSize: 20, 
@@ -56,5 +74,11 @@ const styles = StyleSheet.create({
   },
   buttons :{
     width : "100%",
+    borderRadius: 6,
+    alignItems: "center",
+    justifyContent: "center",
+    paddingVertical: 12,
+    paddingHorizontal: 32,
+    backgroundColor: "#2a5adf",
   }
 });
